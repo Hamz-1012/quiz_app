@@ -47,8 +47,23 @@ class ResultsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-                'You answered correctly $numCorrectQuestions out of $numTotalQuestions questions'),
+            (numCorrectQuestions / numTotalQuestions) > 0.6
+                ? Text(
+                    '🎊Congratulations!🎊\nYou passed the quiz!',
+                    style: GoogleFonts.tenorSans(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  )
+                : Text(
+                    'Sorry, you failed the quiz.\nTry again!',
+                    style: GoogleFonts.tenorSans(
+                        color: Colors.white,
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
+                  ),
             const SizedBox(
               height: 30,
             ),
